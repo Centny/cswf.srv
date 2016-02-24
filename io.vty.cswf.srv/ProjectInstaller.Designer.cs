@@ -33,6 +33,7 @@
             // 
             // ServiceProcessInstaller
             // 
+            this.ServiceProcessInstaller.Account = System.ServiceProcess.ServiceAccount.LocalSystem;
             this.ServiceProcessInstaller.Password = null;
             this.ServiceProcessInstaller.Username = null;
             this.ServiceProcessInstaller.AfterInstall += new System.Configuration.Install.InstallEventHandler(this.serviceProcessInstaller1_AfterInstall);

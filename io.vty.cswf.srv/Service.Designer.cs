@@ -28,13 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.evn_l = new System.Diagnostics.EventLog();
+            ((System.ComponentModel.ISupportInitialize)(this.evn_l)).BeginInit();
             // 
             // Service
             // 
-            this.ServiceName = "Service1";
+            this.ServiceName = "cswf.srv";
+            ((System.ComponentModel.ISupportInitialize)(this.evn_l)).EndInit();
 
         }
 
         #endregion
+
+        private System.Diagnostics.EventLog evn_l;
     }
 }

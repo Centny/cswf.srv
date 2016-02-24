@@ -1,24 +1,21 @@
-﻿using io.vty.cswf.log;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace io.vty.cswf.srv
 {
     public class Proc : Process
     {
-        private static readonly ILog L = Log.New();
         private StreamWriter outf, errf;
         public string Name { get; set; }
         protected IDictionary<string, string> conf;
+        protected EvnLog L;
 
-        public Proc(string name, IDictionary<string, string> conf)
+        public Proc(EvnLog elog,string name, IDictionary<string, string> conf)
         {
-            L.D("creating Proc({0}) by conf->{1}", conf);
+            this.L = elog;
+            L.I("creating Proc({0}) by conf->{1}", conf);
             this.StartInfo.UseShellExecute = "true".Equals(conf["shell"]);
             this.StartInfo.FileName = conf["exec"];
             this.StartInfo.Arguments = conf["args"];
