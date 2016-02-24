@@ -40,6 +40,7 @@
             // 
             // ServiceInstaller
             // 
+            this.ServiceInstaller.DisplayName = "CSWF.SRV";
             this.ServiceInstaller.ServiceName = "cswf.srv";
             this.ServiceInstaller.StartType = System.ServiceProcess.ServiceStartMode.Automatic;
             // 
