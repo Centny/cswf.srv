@@ -2,7 +2,7 @@
 del /Q /S build
 mkdir build
 mkdir build\cswf.srv
-::msbuild io.vty.cswf.srv.sln /property:Configuration="Release" /t:clean /t:build
+msbuild io.vty.cswf.srv.sln /property:Configuration="Release" /t:clean /t:build
 xcopy io.vty.cswf.srv\bin\Release\cswf.srv.exe* build\cswf.srv
 cd build
 7z a cswf.srv.zip cswf.srv
