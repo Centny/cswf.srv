@@ -43,10 +43,12 @@ namespace io.vty.cswf.srv
             if (!Path.IsPathRooted(ofp))
             {
                 ofp = cws + "\\" + ofp;
+                Directory.GetParent(ofp).Create();
             }
             if (!Path.IsPathRooted(efp))
             {
                 efp = cws + "\\" + efp;
+                Directory.GetParent(efp).Create();
             }
             L.I("start run Proc({0}) by \n cws:\t{1}\n out:\t{2}\n err:\t{3}\n", this.Name, cws, ofp, efp);
             this.outf = new StreamWriter(new FileStream(ofp, FileMode.OpenOrCreate | FileMode.Append));
@@ -75,7 +77,7 @@ namespace io.vty.cswf.srv
         }
         protected void OnExited(object sender, EventArgs e)
         {
-            L.I("the Proc({0}) is exit with code({1})", this.Name, this.ExitCode);
+            L.W("the Proc({0}) is exit with code({1})", this.Name, this.ExitCode);
             this.outf.Close();
             this.errf.Close();
         }
